@@ -960,7 +960,7 @@ class Config
      */
     public function issetCookie(string $cookieName): bool
     {
-        return isset($_COOKIE[$this->getCookieName($cookieName)]);
+    return ( $this->isHttps() ? '__Secure-' : '’ ) . $cookieName . ( $this->isHttps() ? '_https' : ‘’ );
     }
 
     /**
